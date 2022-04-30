@@ -1,0 +1,310 @@
+/* Variables css*/
+:root{
+    /* Colors */
+    /* Color mode HSL(hue, saturation, lightness)*/
+    /*
+        blue    :   hsl(224, 69%, 14%)
+        red     :   hsl(0, 100%, 43%)
+        gray    :   hsl(0, 0%, 98%)
+        green   :   hsl(100, 83%, 41%)
+        yellow  :   HSL(52, 100%, 50%)
+    */
+
+    --hue: 26;
+    --sat: 100%;
+    --lig: 50%;
+
+    --brand-color1: hsl(var(--hue), var(--sat), var(--lig)) ;
+    --brand-color2: hsl(43,var(--sat), 56%);
+    --title-color: hsl(212, 95%, 7%);
+    --text-color: hsl(212, 21%, 33%);
+    --bg-gradient: linear-gradient(90deg, #FF6E01 0%, #FF870B 100%);
+    --container-color: #fff;
+    --attention-yellow: hsl(43, var(--sat), 56%);
+    --attention-red: hsl(14, var(--sat), var(--lig));
+    --attention-green: hsl(120, var(--sat), 36%);
+    --attention-blue: hsl(216, var(--sat), 53%);
+
+    /* Font and typography */
+    /* .5rem = 8px / 1rem = 16px */
+    --body-font: 'Poppins', sans-serif;/*
+    --header: 4.0rem;
+    --title: 3.4rem;
+    --subtitle: 2.4rem;
+    --body-text: 2.0rem;
+    --details: 1.8rem;
+    --smallest: 1.6rem;
+
+    /* Title center*/
+
+}
+
+/* Responsive typography *//*
+@media only screen and (orientation: portrait)  {
+    :root {
+        --header: 2.8rem;
+        --title: 2rem;
+        --subtitle: 2rem;
+        --body-text: 1.6rem;
+        --details: 1.4rem;
+        --smallest: 1.2rem;
+    
+    }
+}*/
+*,
+*::after,
+*::before{
+    list-style:none;
+    text-decoration:none;
+    margin:0;
+    padding:0;
+    text-align:left;
+    border:0;
+    outline-color:#ccc;
+    color: var(--text-color);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    font-family: var(--body-font);
+    font-display: swap;
+}
+html{
+    scroll-behavior: smooth;
+    direction: ltr;
+    font-size: clamp(1rem, 1.2vw, 1,6rem);
+}
+body{
+    counter-reset: num;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+h2{
+    margin-top: .8rem;
+    line-height: 160%;
+}
+h3{
+    margin-top: 1rem;
+    line-height: 180%;
+    
+}
+p{ 
+    line-height: 160%;
+}
+button {
+    width: max-content;
+    height: 4rem;
+    padding: 0 4rem;
+    color: #FFFFFF;
+    border-radius: 0.8rem;
+    font-size: var(--body-text);
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--attention-green);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color .4s ease;
+    transition: box-shadow .4s ease;
+    box-shadow: 0px 1.25rem 40px -11px var(--attention-green);
+}
+button:hover {
+    background-color: var(--attention-blue);
+    box-shadow: 0px 1.25rem 40px -11px skyblue;
+    color: #ffffff;
+}
+section{
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+.container{
+    display: grid;
+    width: min(100% - 10%, 1216px);
+    margin-inline: auto;
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+.text-center{
+    text-align: center;
+}
+.item{
+    padding: 1rem 2rem;
+    border-radius: .6rem;
+    background-color: #FFFFFF;
+}
+.grid{
+    display: grid;
+}
+
+header .container{
+    width: 100%;
+}
+header .container img{
+    max-width: max-content;
+    max-height: 100vh;
+    object-fit: contain; 
+}
+
+.s-benefits .container {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+    background-image: url(../assets/vitamina.svg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 70%;
+}
+.s-benefits .container .benefits__info h2{
+    color: var(--brand-color1);
+    text-transform: uppercase;
+    font-size: 220%;
+}
+
+.s-benefits .container .benefits__img{
+    gap: 1rem;
+    align-self: flex-end;
+    justify-items: center;
+}
+.s-benefits .container .benefits__img img{
+    display: block;
+    height: 100%;
+    max-width: fit-content;
+}
+
+.s-depoimentos{
+    background-color: var(--brand-color1);
+}
+.s-depoimentos .container h2{
+    text-align: center;
+    color: #FFFFFF;
+}
+.s-depoimentos .container h3{
+    font-weight: 500;
+    text-align: center;
+    color: #FFFFFF;
+}
+.s-depoimentos .container .content_depoimentos{
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+}
+.s-depoimentos .container .content_depoimentos .depoimento{
+    display: grid;
+    grid-template-areas: 
+    "texto texto"
+    "profile dados";
+    gap: 1rem;
+}
+.s-depoimentos .container .content_depoimentos .depoimento .profile{
+    display: block;
+    width: 64px;
+    height: 64px;
+}
+.texto{
+    grid-area: texto;
+}
+.perfil{
+    grid-area: perfil;
+}
+.dados{
+    grid-area: dados;
+}
+
+.s-oferta .container .header h2{
+    text-align: center;
+}
+.s-oferta .container .header h3{
+    text-align: center;
+    font-weight: 600;
+}
+.s-oferta .container .header span{
+    color: var(--attention-green);
+}
+.s-oferta .container .content_price{
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.s-oferta .container .content_price img{
+    width: 100%;
+    max-height: 562.5px;
+    object-fit: contain;
+}
+
+.s-garantia {
+   background-color: #f2f2f8;
+}
+.s-garantia .container{
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+.s-garantia .container .garantia_selo{
+    display: block;
+    max-width: 280px;
+    max-height: 280px;
+}
+.s-garantia .container .garantia_description mark{
+    color: #ffffff;
+    background-color: var(--attention-red);
+    background-size: contain;
+    padding: 0 .3rem;
+}
+
+.s-faq .container .content_header h2{
+    text-align: center;
+}
+
+.s-faq .container .content_header h3{
+    text-align: center;
+    font-weight: 600;
+}
+.s-faq .container .content_faq{
+    width: 90%;
+}
+.s-faq .container .content_faq details{
+    margin-bottom: .6rem;
+}
+.s-faq .container .content_faq summary{
+    background-color: #f2f2f8;
+    padding: .6rem 1.6rem;
+    font-weight: 600;
+    border-radius: .6rem;
+    font-size: 90%;
+}
+.s-faq .container .content_faq p{
+    padding: .6rem 1.6rem;
+    font-weight: 400;
+    font-size: 80%;
+}
+
+footer{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: var(--brand-color1);
+}
+footer nav{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    place-content: center;
+}
+footer .p-footer{
+    white-space: pre-wrap;
+    color: #fff;
+    text-align: center;
+    font-size: 80%;
+}
+footer a{
+    text-align: center;
+    color: #fff;
+    text-align: center;
+    font-size: 80%;
+    font-weight: 500;
+}
+footer .copyright{
+    color: #fff;
+    text-align: center;
+    font-size: 70%;
+    text-align: center;
+}
